@@ -6,9 +6,7 @@ def load_users(file_path):
         for line in file:
             user_id, password, salt_stored = line.strip().split(',')
             users[user_id] = (password, salt_stored)
-
     return users
-
 
 def authenticate_user(users):
     user_id = input("Enter your user ID: ")
@@ -19,9 +17,7 @@ def authenticate_user(users):
                 user_id, password, salt_stored = line.strip().split(',')
                 users[user_id] = salt_stored
                 pass_process = salt_stored + password1
-                print(pass_process)
                 check_pass = hashing(salt_stored,pass_process)
-                print(check_pass)
                 if check_pass==password:
                     print("Authentication successful")
                 else:
@@ -40,7 +36,6 @@ def create_new_user():
     salt_generated = generate_salt()
     if newinput == 'yes':
         pass_process=mixture(salt_generated, newpass)
-
         pass_output=hashing(salt_generated,pass_process)
         with open('pass hashed.txt', 'a') as file:
             file.write("\n" + newuser + "," + pass_output + "," + salt_generated)
@@ -54,7 +49,6 @@ def main():
     input1 = input("Do you want to 'login' or 'create acc'?\n").lower()
     users = load_users(file_path)
     if input1 == 'login':
-
         authenticate_user(users)
     elif input1 == 'create acc':
         create_new_user()
