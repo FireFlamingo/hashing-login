@@ -9,7 +9,8 @@ User Registration: New users can register by providing a username and password. 
 
 User Authentication: Existing users can log in by providing their username and password. The system retrieves the stored salt and hashed password, rehashes the entered password with the salt, and compares it to the stored hash to authenticate the user.
 
-Secure Data Storage: User data, including the hashed password and salt, is stored in a simple text file (pass hashed.txt) in a CSV format. This keeps the system lightweight and easy to understand.
+Secure Data Storage: The password is salted and then hashed to keep the credentials secure.
+
 
 📂 File Structure
 login and create.py: Handles user interactions, including login and account creation.
