@@ -1,4 +1,4 @@
-from Hashing1 import generate_salt, hashing, mixture
+from Hashing import generate_salt, hashing, mixture
 
 def load_users(file_path):
     users = {}
